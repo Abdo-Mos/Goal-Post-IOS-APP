@@ -44,6 +44,9 @@
                                             <constraint firstAttribute="height" constant="22" id="Mpv-N0-0Nn"/>
                                             <constraint firstAttribute="width" constant="22" id="zig-uH-wBF"/>
                                         </constraints>
+                                        <connections>
+                                            <action selector="addNewGoalPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9YX-CH-d0T"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.3012695312" green="0.9038085938" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,15 +58,55 @@
                                     <constraint firstAttribute="bottom" secondItem="WMn-4X-hOu" secondAttribute="bottom" constant="15" id="bcq-N0-y0J"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pe0-hj-3Gj">
+                                <rect key="frame" x="47.5" y="165" width="225.5" height="62"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcoe to GoalPost" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5g-G5-JqH">
+                                        <rect key="frame" x="0.0" y="0.0" width="225.5" height="34.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To begin, create a goal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z70-Jt-cMA">
+                                        <rect key="frame" x="0.0" y="34.5" width="225.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7wM-07-7xZ">
+                                <rect key="frame" x="0.0" y="90" width="320" height="478"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="7cp-B3-yyw">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7cp-B3-yyw" id="WXW-z3-2mm">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xwc-w5-MX6" secondAttribute="trailing" id="6O8-a3-ES3"/>
+                            <constraint firstItem="Pe0-hj-3Gj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RoD-Yg-AwN"/>
                             <constraint firstItem="Xwc-w5-MX6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UOh-OD-UKM"/>
+                            <constraint firstItem="Pe0-hj-3Gj" firstAttribute="top" secondItem="Xwc-w5-MX6" secondAttribute="bottom" constant="75" id="fN5-cP-OyY"/>
                             <constraint firstItem="Xwc-w5-MX6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="mi6-JK-cYs"/>
+                            <constraint firstItem="7wM-07-7xZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="oCn-qe-eAI"/>
+                            <constraint firstItem="7wM-07-7xZ" firstAttribute="top" secondItem="Xwc-w5-MX6" secondAttribute="bottom" id="owG-86-tVv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7wM-07-7xZ" secondAttribute="trailing" id="swp-t7-c7r"/>
+                            <constraint firstItem="7wM-07-7xZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wgr-fM-Pp9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="7wM-07-7xZ" id="Y9n-7s-n2y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

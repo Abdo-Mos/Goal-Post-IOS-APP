@@ -13,7 +13,7 @@
         <!--GoalsVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GoalsVC" customModule="goalPostApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GoalsVC" id="BYZ-38-t0r" customClass="GoalsVC" customModule="goalPostApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,9 +47,6 @@
                                         <state key="normal" image="add_button"/>
                                         <connections>
                                             <action selector="addNewGoalPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9YX-CH-d0T"/>
-                                            <segue destination="dDh-bE-Dht" kind="popoverPresentation" popoverAnchorView="eFI-hK-Zaa" id="eqf-cF-I7l">
-                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                            </segue>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -183,7 +180,7 @@
         <!--Create GoalVC-->
         <scene sceneID="AE8-IR-HIk">
             <objects>
-                <viewController id="dDh-bE-Dht" customClass="CreateGoalVC" customModule="goalPostApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateGoalVC" id="dDh-bE-Dht" customClass="CreateGoalVC" customModule="goalPostApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vhn-hD-sJv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

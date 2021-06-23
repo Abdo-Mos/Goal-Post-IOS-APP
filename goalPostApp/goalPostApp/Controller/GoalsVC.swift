@@ -11,6 +11,7 @@ import UIKit
 class GoalsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    let test = GoalCell()
     
 
     override func viewDidLoad() {
@@ -19,7 +20,7 @@ class GoalsVC: UIViewController {
     }
     
     @IBAction func addNewGoalPressed(_ sender: UIButton!) {
-        print("HEllo From BUtton!!!!")
+        print(test.configureCell(Goaldescription: "One", GoalType: "Second", goalProgressAmount: 3))
     }
 
 

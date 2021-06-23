@@ -16,7 +16,7 @@ class GoalsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         setUpDelegation()
     }
     
@@ -47,7 +47,7 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
         }
         // - configure it
         // - pass in some data
-        cell.configureCell(Goaldescription: "Eatsaled", GoalType: GoalType.longTerm, goalProgressAmount: 3)
+        cell.configureCell(Goaldescription: "Eatsaled", GoalType: .longTerm, goalProgressAmount: 3)
         // - return that cell to the tableView
         return cell
     }

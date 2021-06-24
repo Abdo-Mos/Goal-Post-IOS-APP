@@ -30,7 +30,7 @@ class GoalsVC: UIViewController {
 
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
 
-    func setUpDelegation() {
+    private func setUpDelegation() {
         tableView.delegate   = self
         tableView.dataSource = self
     }

@@ -12,7 +12,7 @@ import UIKit
 // An etension of UIViewController that's going to modify the way that ViewControllers are presented,
 // it's going to make it easy for to emulate the animation style of a UINavigationController without needing to use one.
 extension UIViewController {
-    func presentDetail(_ viewControllerToPresent: UIViewController) {
+    public func presentDetail(_ viewControllerToPresent: UIViewController) {
         // create a transition of type CATransition which comes form the coreAnimation Library.
         let transition = CATransition()
         transition.duration = 0.3
@@ -23,7 +23,7 @@ extension UIViewController {
         present(viewControllerToPresent, animated: false, completion: nil)
     }
     // function to dismiss
-    func dismissDetail() {
+    public func dismissDetail() {
         let transition = CATransition()
         transition.duration = 0.3
         transition.type = CATransitionType.push

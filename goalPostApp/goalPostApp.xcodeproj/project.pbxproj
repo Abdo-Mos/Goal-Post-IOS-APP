@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA2DC21A2684F71A000FF655 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC2192684F71A000FF655 /* UIViewExt.swift */; };
+		FA2DC21C26850214000FF655 /* UIButtonExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2DC21B26850214000FF655 /* UIButtonExt.swift */; };
 		FA7CF29926827907008C1DA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CF29826827907008C1DA2 /* AppDelegate.swift */; };
 		FA7CF29B26827907008C1DA2 /* GoalsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7CF29A26827907008C1DA2 /* GoalsVC.swift */; };
 		FA7CF29E26827907008C1DA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7CF29C26827907008C1DA2 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		FA2DC2192684F71A000FF655 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		FA2DC21B26850214000FF655 /* UIButtonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExt.swift; sourceTree = "<group>"; };
 		FA7CF29526827906008C1DA2 /* goalPostApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = goalPostApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA7CF29826827907008C1DA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA7CF29A26827907008C1DA2 /* GoalsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsVC.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				FAA0D01E2683BC0100A0E942 /* UIViewControllerExt.swift */,
 				FA2DC2192684F71A000FF655 /* UIViewExt.swift */,
+				FA2DC21B26850214000FF655 /* UIButtonExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				FA2DC21A2684F71A000FF655 /* UIViewExt.swift in Sources */,
 				FA7CF29926827907008C1DA2 /* AppDelegate.swift in Sources */,
 				FAA0D01F2683BC0100A0E942 /* UIViewControllerExt.swift in Sources */,
+				FA2DC21C26850214000FF655 /* UIButtonExt.swift in Sources */,
 				FA7CF2A126827907008C1DA2 /* goalPostApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

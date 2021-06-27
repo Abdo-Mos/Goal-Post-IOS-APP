@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+// create an instance of our AppDelegate file, because when we create a project with CoreData all of the CoreData's methods are in the AppDelegate file.
+/// This constant is accessible publicly across all of our VCs.
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
 class GoalsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,7 +34,7 @@ class GoalsVC: UIViewController {
 
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
 
-    private func setUpDelegation() {
+    private func setUpDelegation() -> Void {
         tableView.delegate   = self
         tableView.dataSource = self
     }

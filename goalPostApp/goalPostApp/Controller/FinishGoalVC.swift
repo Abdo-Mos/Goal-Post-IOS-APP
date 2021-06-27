@@ -22,18 +22,44 @@ class FinishGoalVC: UIViewController {
     
     @IBAction func backBtnPressed() {
         dismissDetail()
-
     }
     
     fileprivate var goalDescription: String!
     fileprivate var goalType: GoalType!
     
     @IBAction func createGoalBtnPressed(_ sender: UIButton!) {
-        
-        // pass data into coreData Goal model
+        // pass user data into a new Goal model
+        if pointsTextField.text != "" {
+            self.saveData { (complete) in
+                if complete {
+                    dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
     
-    internal func initData(description: String, goalType: GoalType) {
+    fileprivate func saveData(completion: (_ finished: Bool) -> ()) -> Void {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        // create a goal model and give it a managedContext that it needs to know so that it knows where it's saving this data so it can be properly managed.
+        let goalModel = Goal(context: managedContext)
+        goalModel.goalDescription = goalDescription
+        goalModel.goalType = goalType.rawValue
+        goalModel.goalCompletionValue = Int32(pointsTextField.text!)!
+        goalModel.goalProgress = Int32(0)
+        
+        // pass this into persistent storage
+        do {
+            try managedContext.save()
+            print("Successfully saved Data")
+            completion(true)
+        } catch {
+            debugPrint("Could not save to persistent storage: \(error.localizedDescription)")
+            completion(false)
+        }
+        
+    }
+    
+    internal func initData(description: String, goalType: GoalType) -> Void {
         self.goalDescription = description
         self.goalType = goalType
     

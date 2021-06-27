@@ -14,15 +14,12 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var goalTypeLbl: UILabel!
     @IBOutlet weak var goalProgressLbl: UILabel!
     
-    func configureCell(Goaldescription description: String, GoalType type: GoalType, goalProgressAmount progressAmount: Int) {
+    func configureCell(Goaldescription description: String, GoalType type: GoalType, goalProgressAmount progressAmount: Int) -> Void {
         self.goalDescriptionLbl.text = description
         self.goalTypeLbl.text        = type.rawValue
         self.goalProgressLbl.text    = String(progressAmount)
     }
     
-    
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

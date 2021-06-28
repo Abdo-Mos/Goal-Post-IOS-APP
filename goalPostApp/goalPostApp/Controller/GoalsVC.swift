@@ -12,7 +12,6 @@ import CoreData
 // create an instance of our AppDelegate file, because when we create a project with CoreData all of the CoreData's methods are in the AppDelegate file.
 /// This constant is accessible publicly across all of our VCs.
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
-//let managedContext ??????????????????????????????????????????????????????????????
 
 class GoalsVC: UIViewController {
     
@@ -51,6 +50,8 @@ class GoalsVC: UIViewController {
     
 }
 
+
+// UITableView Ext
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
 
     private func setUpDelegation() -> Void {
@@ -79,6 +80,8 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
+
+// CoreData Methods Ext
 extension GoalsVC {
     fileprivate func fetchData(completion:(_ complete: Bool) -> ()) -> Void {
         guard let mangedContext = appDelegate?.persistentContainer.viewContext else { return }
@@ -93,6 +96,16 @@ extension GoalsVC {
             debugPrint("Could not fetch: \(error.localizedDescription)")
             completion(false)
         }
-        
+    }
+    
+    fileprivate func removeData(atIndexPath indexPath: IndexPath) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        managedContext.delete(goals[indexPath.row])
+        do {
+            try managedContext.save()
+            print("Successfully removed goal") // debugging
+        } catch {
+            debugPrint("Could not remove: \(error.localizedDescription)")
+        }
     }
 }

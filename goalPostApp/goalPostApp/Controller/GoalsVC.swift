@@ -16,6 +16,9 @@ let appDelegate = UIApplication.shared.delegate as? AppDelegate
 class GoalsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    // public variables
+    fileprivate var goals = Array<GoalEntity>()
 
     //MARK: - Life Cycle Methods
     
@@ -27,19 +30,22 @@ class GoalsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        fetchCoreDataObjects()
+        tableView.reloadData()
+    }
+    
+    fileprivate func fetchCoreDataObjects() -> Void {
         self.fetchData { (complete) in
             if complete {
-                if goals.count > 1 {
+                if goals.count >= 1 {
                     tableView.isHidden = false
                 } else {
                     tableView.isHidden = true
                 }
             }
         }
-        tableView.reloadData()
+//        tableView.reloadData()
     }
-    
-    fileprivate var goals = Array<GoalEntity>()
     
     @IBAction func addNewGoalPressed(_ sender: UIButton!) {
         guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else {
@@ -51,19 +57,22 @@ class GoalsVC: UIViewController {
 }
 
 
-// UITableView Ext
+// UITableView Methods Ext
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
 
     private func setUpDelegation() -> Void {
         tableView.delegate   = self
         tableView.dataSource = self
     }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return goals.count
     }
+    
     //MARK: - NOTES
     // For cellFOrRow at indexPath, this is where we're going to
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -78,6 +87,30 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
         // - return that cell to the tableView
         return cell
     }
+    
+    // enable tableView to swipe & edit cells
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    // set the editing style of a particular tableViewCell
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    // create the editing action so we can edit the cell
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        // action to delete
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "DELETE") { (rowAction, indexPath) in
+            self.removeData(atIndexPath: indexPath)
+            self.fetchCoreDataObjects()
+            // delete action
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        deleteAction.backgroundColor = UIColor.red
+        return [deleteAction]
+    }
+    
 }
 
 

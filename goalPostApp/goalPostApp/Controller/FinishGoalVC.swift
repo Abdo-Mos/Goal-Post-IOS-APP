@@ -41,7 +41,7 @@ class FinishGoalVC: UIViewController {
     fileprivate func saveData(completion: (_ finished: Bool) -> ()) -> Void {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         // create a goal model and give it a managedContext that it needs to know so that it knows where it's saving this data so it can be properly managed.
-        let goalModel = Goal(context: managedContext)
+        let goalModel = GoalEntity(context: managedContext)
         goalModel.goalDescription = goalDescription
         goalModel.goalType = goalType.rawValue
         goalModel.goalCompletionValue = Int32(pointsTextField.text!)!

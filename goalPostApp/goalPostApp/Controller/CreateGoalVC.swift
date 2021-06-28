@@ -24,23 +24,23 @@ class CreateGoalVC: UIViewController {
     
     fileprivate func setUpViewDidLoad() -> Void {
         nextBtn.bindToKeyboard()
-        defaultGoalType = .longTerm
+        defaultGoalTypeSelection = .longTerm
         longTermBtn.setSelectedColor()
         shortTermBtn.setDeselectedColor()
         
         goalTextView.delegate = self
     }
 
-    fileprivate var defaultGoalType: GoalType = .longTerm
+    fileprivate var defaultGoalTypeSelection: GoalType = .longTerm
     
     @IBAction func longTermBtnPressed(_ sender: UIButton!) {
-        defaultGoalType = .longTerm
+        defaultGoalTypeSelection = .longTerm
         longTermBtn.setSelectedColor()
         shortTermBtn.setDeselectedColor()
     }
     
     @IBAction func shortTermBtnPressed(_ sender: UIButton!) {
-        defaultGoalType = .shortTerm
+        defaultGoalTypeSelection = .shortTerm
         shortTermBtn.setSelectedColor()
         longTermBtn.setDeselectedColor()
     }
@@ -51,9 +51,9 @@ class CreateGoalVC: UIViewController {
     
     fileprivate func presentingFinishGoalVC() -> Void {
         // initialize the data
-        if goalTextView.text != "" {
+        if goalTextView.text != "" && goalTextView.text != "Enter Your Goal Here." {
             guard let finishGoalVC = storyboard?.instantiateViewController(withIdentifier: "finishGoalVC") as? FinishGoalVC else { return }
-            finishGoalVC.initData(description: goalTextView.text, goalType: defaultGoalType)
+            finishGoalVC.initData(description: goalTextView.text, goalType: defaultGoalTypeSelection)
             // present the finishGoalVC
             presentingViewController?.presentSecondaryDetail(finishGoalVC)
         }
@@ -69,7 +69,6 @@ extension CreateGoalVC: UITextViewDelegate {
         if goalTextView.text == "Enter Your Goal Here." {
             goalTextView.text = ""
         }
-//        goalTextView.text = ""
         goalTextView.textColor = UIColor.black
     }
 }

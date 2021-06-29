@@ -76,7 +76,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7wM-07-7xZ">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7wM-07-7xZ">
                                 <rect key="frame" x="0.0" y="70" width="320" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -87,6 +87,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="jPN-PN-n11">
+                                                    <rect key="frame" x="267" y="8" width="45" height="53.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="25d-AX-TLe"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="23"/>
+                                                    <color key="textColor" red="0.50980392156862742" green="0.80392156862745101" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="bsF-43-Ti8">
                                                     <rect key="frame" x="8" y="8" width="251" height="53.5"/>
                                                     <subviews>
@@ -132,27 +141,39 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="jPN-PN-n11">
-                                                    <rect key="frame" x="267" y="8" width="45" height="53.5"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvC-0K-59D">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="69.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL COMPELETED 👏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ch-Mr-dHQ">
+                                                            <rect key="frame" x="20" y="17.5" width="280.5" height="34.5"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="1" green="0.72156862749999995" blue="0.23572176265555553" alpha="0.79975076689018409" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="45" id="25d-AX-TLe"/>
+                                                        <constraint firstItem="8ch-Mr-dHQ" firstAttribute="centerY" secondItem="OvC-0K-59D" secondAttribute="centerY" id="N6y-uh-HW5"/>
+                                                        <constraint firstItem="8ch-Mr-dHQ" firstAttribute="centerX" secondItem="OvC-0K-59D" secondAttribute="centerX" id="OKs-Al-5SO"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="23"/>
-                                                    <color key="textColor" red="0.50980392156862742" green="0.80392156862745101" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="jPN-PN-n11" secondAttribute="trailing" constant="8" id="5na-On-qIf"/>
                                                 <constraint firstItem="bsF-43-Ti8" firstAttribute="top" secondItem="Mxy-y9-VCG" secondAttribute="top" constant="8" id="GoY-iR-CHr"/>
+                                                <constraint firstAttribute="bottom" secondItem="OvC-0K-59D" secondAttribute="bottom" id="aSc-5H-OcT"/>
                                                 <constraint firstItem="bsF-43-Ti8" firstAttribute="leading" secondItem="Mxy-y9-VCG" secondAttribute="leading" constant="8" id="abO-DF-dpu"/>
                                                 <constraint firstItem="jPN-PN-n11" firstAttribute="top" secondItem="Mxy-y9-VCG" secondAttribute="top" constant="8" id="cKe-cc-f3m"/>
+                                                <constraint firstAttribute="trailing" secondItem="OvC-0K-59D" secondAttribute="trailing" id="cji-SX-FvY"/>
+                                                <constraint firstItem="OvC-0K-59D" firstAttribute="top" secondItem="Mxy-y9-VCG" secondAttribute="top" id="dbF-6p-cPt"/>
                                                 <constraint firstAttribute="bottom" secondItem="bsF-43-Ti8" secondAttribute="bottom" constant="8" id="gfR-md-dMe"/>
+                                                <constraint firstItem="OvC-0K-59D" firstAttribute="leading" secondItem="Mxy-y9-VCG" secondAttribute="leading" id="lQ2-t1-HPs"/>
                                                 <constraint firstItem="jPN-PN-n11" firstAttribute="leading" secondItem="bsF-43-Ti8" secondAttribute="trailing" constant="8" id="qnB-Eg-xcw"/>
                                                 <constraint firstAttribute="bottom" secondItem="jPN-PN-n11" secondAttribute="bottom" constant="8" id="u3a-4Q-L5q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="completionView" destination="OvC-0K-59D" id="xqB-Pk-sBp"/>
                                             <outlet property="goalDescriptionLbl" destination="8rx-au-zVI" id="DPg-SX-dQb"/>
                                             <outlet property="goalProgressLbl" destination="jPN-PN-n11" id="vJs-Dt-79x"/>
                                             <outlet property="goalTypeLbl" destination="Fa7-jx-boW" id="91N-Sf-cQ6"/>

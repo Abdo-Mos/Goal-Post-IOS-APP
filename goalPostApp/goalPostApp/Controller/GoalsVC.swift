@@ -44,7 +44,21 @@ class GoalsVC: UIViewController {
                 }
             }
         }
-//        tableView.reloadData()
+    }
+    
+    fileprivate func setProgressForGoal(atIndexPath indexPath: IndexPath) -> Void {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        let chosenGoal = goals[indexPath.row]
+        if chosenGoal.goalProgress < chosenGoal.goalCompletionValue {
+            chosenGoal.goalProgress = chosenGoal.goalProgress + 1
+        } else { return }
+        
+        do {
+            try managedContext.save()
+            print("Successfully Set Progress")
+        } catch {
+            debugPrint("Could not Set Goal Progress: \(error.localizedDescription)")
+        }
     }
     
     @IBAction func addNewGoalPressed(_ sender: UIButton!) {
@@ -107,8 +121,15 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
             // delete action
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+        
+        // actin to add
+        let addAction = UITableViewRowAction(style: .normal, title: "ADD ONE") { (rowAction, indexPath) in
+            self.setProgressForGoal(atIndexPath: indexPath)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
         deleteAction.backgroundColor = UIColor.red
-        return [deleteAction]
+        addAction.backgroundColor = #colorLiteral(red: 0.960100472, green: 0.7673401237, blue: 0.4457861185, alpha: 1)
+        return [deleteAction, addAction]
     }
     
 }
